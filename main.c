@@ -127,7 +127,7 @@ void pool_free(struct mem_pool *pool, void *ptr) {
     return; // Out-of-bounds, indicates corrupted info or invalid free
   }
 
-  for (size_t i = 0; i < num_blocks_alloc; i++) {
+  for (size_t i = 0; i < (size_t)num_blocks_alloc; i++) {
     // Only valid if it was previously allocated. We'll just set them to 0.
     pool->allocation_sizes[block_index + i] = 0;
   }
